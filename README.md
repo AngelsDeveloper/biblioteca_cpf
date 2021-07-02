@@ -2,8 +2,9 @@
 
 ## 🚀 Sobre o Projeto 🚀
 
-- O projeto foi criado para estudo de algoritmos.
-- O projeto consiste em manipulação de CPF em geral
+- O projeto foi criado através de um exercicio de algoritmo.
+- O projeto está sendo utilizado para estudo de algoritmos.
+- O projeto consiste em manipulação de CPF em geral.
 
 ## ☄ Funções ☄
 
@@ -23,3 +24,11 @@
 - -  Ele vai retornar o CPF formatado utilizando método de **Formatar**.
 -  Caso o CPF seja **inválido**
 - -  Ele vai retornar falso.
+
+## ⚙ Clone ⚙
+
+Para clonar o repositório, utilize o comando do git bash abaixo
+
+```
+git clone https://github.com/AngelsDeveloper/biblioteca_cpf
+```
