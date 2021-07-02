@@ -27,8 +27,10 @@
 
 ## ⚙ Clone ⚙
 
-Para clonar o repositório, utilize o comando do git bash abaixo
+- Para clonar o repositório, utilize o comando do **git bash** abaixo
 
 ```
 git clone https://github.com/AngelsDeveloper/biblioteca_cpf
 ```
+
+- Ele vai estar no diretório que você abriu o **git bash**.
