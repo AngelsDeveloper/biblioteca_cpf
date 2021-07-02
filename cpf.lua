@@ -1,6 +1,4 @@
-CPF = {}
-
-function CPF.SanitizarCPF(valor, max)
+function SanitizarCPF(valor, max)
     local tamanho = 0
     local chars
     valor = tostring(valor)
@@ -22,7 +20,7 @@ function CPF.SanitizarCPF(valor, max)
     end
 end
 
-function CPF.FormatarCPF(cpf)
+function FormatarCPF(cpf)
     local chars
     local formato = '###.###.###-##'
     local cpfFormatado = ''
@@ -44,7 +42,7 @@ function CPF.FormatarCPF(cpf)
     return cpfFormatado
 end
 
-function CPF.ValidarCPF(cpf)
+function ValidarCPF(cpf)
     cpf = SanitizarCPF(cpf)
 
     if not cpf then
@@ -131,4 +129,8 @@ function CPF.ValidarCPF(cpf)
 
 end
 
-return CPF
+return {
+    SanitizarCPF = SanitizarCPF,
+    FormatarCPF = FormatarCPF,
+    ValidarCPF = ValidarCPF,
+}
