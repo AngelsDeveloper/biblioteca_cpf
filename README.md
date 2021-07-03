@@ -18,7 +18,7 @@
 
 ### 🎇 Validação 🎇
 
-- Utiliza a função de **Sanitizar** o paramêtro passado.
+- Utiliza a função de **Sanitizar** o CPF.
 - Faz o algoritmo de Validação.
 - Caso o CPF seja **válido**
 - -  Ele vai retornar o CPF formatado utilizando a função de **Formatar**.
