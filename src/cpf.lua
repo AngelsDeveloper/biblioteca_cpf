@@ -1,3 +1,15 @@
+local cpfsBloqueados = {
+    [11111111111] = true,
+    [22222222222] = true,
+    [33333333333] = true,
+    [44444444444] = true,
+    [55555555555] = true,
+    [66666666666] = true,
+    [77777777777] = true,
+    [88888888888] = true,
+    [99999999999] = true
+}
+
 function SanitizarCPF(valor)
     local chars
     valor = tostring(valor)
@@ -84,21 +96,7 @@ function ValidarCPF(cpf)
 
     if not cpf then
         return false
-    end
-
-    local cpfsBlocked = {
-        ['11111111111'] = true,
-        ['22222222222'] = true,
-        ['33333333333'] = true,
-        ['44444444444'] = true,
-        ['55555555555'] = true,
-        ['66666666666'] = true,
-        ['77777777777'] = true,
-        ['88888888888'] = true,
-        ['99999999999'] = true,
-    }
-
-    if cpfsBlocked[tostring(cpf)] then
+    elseif cpfsBloqueados[tonumber(cpf)] then
         return false
     end
 
