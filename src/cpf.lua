@@ -94,9 +94,7 @@ end
 function ValidarCPF(cpf)
     cpf = SanitizarCPF(cpf)
 
-    if not cpf then
-        return false
-    elseif cpfsBloqueados[tonumber(cpf)] then
+    if not cpf or cpfsBloqueados[tonumber(cpf)] then
         return false
     end
 
