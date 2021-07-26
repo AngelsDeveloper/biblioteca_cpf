@@ -23,8 +23,8 @@ function SanitizarCPF(cpf)
     end
 
     
-    if #stringCompleta == 11 and tonumber(stringCompleta) then
-        return math.floor(stringCompleta)
+    if #stringCompleta == 11 then
+        return stringCompleta
     else
         return false
     end
