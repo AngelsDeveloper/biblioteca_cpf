@@ -69,28 +69,6 @@ function FormatarCPF(cpf)
     return cpfFormatado
 end
 
-function FormatarCPF(cpf)
-    local chars
-    local formato = '###.###.###-##'
-    local cpfFormatado = ''
-
-    local pontos = 0
-
-    for i = 1, #formato do
-        chars = string.sub(formato, i, i)
-        chars_cpf = string.sub(cpf, i - pontos, i - pontos)
-
-        if chars == '#' then
-            cpfFormatado = cpfFormatado .. chars_cpf
-        else
-            pontos = pontos + 1
-            cpfFormatado = cpfFormatado .. chars
-        end
-    end
-
-    return cpfFormatado
-end
-
 function ValidarCPF(cpf)
     cpf = SanitizarCPF(cpf)
 
