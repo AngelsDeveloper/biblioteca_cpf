@@ -30,11 +30,11 @@ function SanitizarCPF(cpf)
     end
 end
 
-function ValidarDigito(cpf, inicio, fim, multiplicator)
+function ValidarDigito(cpf, fim, multiplicador)
     local resto = 0
     local soma = 0
-    local mult = multiplicator
-    local cpf_valor = string.sub(cpf, inicio, fim)
+    local mult = multiplicador
+    local cpf_valor = string.sub(cpf, 1, fim)
 
     for i = 1, #cpf_valor do
         cpf_char = string.sub(cpf_valor, i, i)
@@ -80,8 +80,8 @@ function ValidarCPF(cpf)
         return false
     end
 
-    local primeirodigito = ValidarDigito(string.sub(cpf, 1, 9), 1, 9, 10)
-    local segundodigito = ValidarDigito(string.sub(cpf, 1, 9) .. primeirodigito, 1, 10, 11) 
+    local primeirodigito = ValidarDigito(string.sub(cpf, 1, 9), 9, 10)
+    local segundodigito = ValidarDigito(string.sub(cpf, 1, 9) .. primeirodigito, 10, 11) 
     
     local digitoscertos = primeirodigito .. segundodigito
 
@@ -91,12 +91,35 @@ function ValidarCPF(cpf)
         return false
     end
 
-    return FormatarCPF(cpf)
+    if formatado or formatado == nil then
+        return FormatarCPF(cpf)
+    else
+        return cpf
+    end
+end
+
+function GerarCPF(formatado)
+    local cpf = ''
+    for i = 1, 9 do
+       cpf = cpf .. math.random(0,9) 
+    end
+    
+    local primeirodigito = ValidarDigito(cpf, 9, 10)
+    local segundodigito = ValidarDigito(cpf .. primeirodigito, 10, 11)
+    
+    local cpfcompleto = cpf .. primeirodigito .. segundodigito
+    
+    if formatado or formatado == nil then
+        return FormatarCPF(cpfcompleto)
+    else
+        return cpfcompleto
+    end
 end
 
 return {
     SanitizarCPF = SanitizarCPF,
     FormatarCPF = FormatarCPF,
     ValidarCPF = ValidarCPF,
-    ValidarDigito, ValidarDigito
+    ValidarDigito = ValidarDigito,
+    GerarCPF = GerarCPF,
 }
