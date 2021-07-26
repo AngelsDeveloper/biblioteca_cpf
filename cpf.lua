@@ -10,21 +10,21 @@ local cpfsBloqueados = {
     [99999999999] = true
 }
 
-function SanitizarCPF(valor)
+function SanitizarCPF(cpf)
     local chars
-    valor = tostring(valor)
+    cpf = tostring(cpf)
     local stringCompleta = ''
 
-    for i = 1, #valor do
-        chars = string.sub(valor, i, i)
+    for i = 1, #cpf do
+        chars = string.sub(cpf, i, i)
         if tonumber(chars) then
             stringCompleta = stringCompleta .. chars
         end
     end
 
     
-    if #stringCompleta == 11 then
-        return stringCompleta
+    if #stringCompleta == 11 and tonumber(stringCompleta) then
+        return math.floor(stringCompleta)
     else
         return false
     end
@@ -44,7 +44,11 @@ function ValidarDigito(cpf, inicio, fim, multiplicator)
 
     resto = (soma * 10) % 11
 
-    return resto
+    if resto == 10 then
+        return 0
+    else
+        return math.floor(resto)
+    end
 end
 
 function FormatarCPF(cpf)
