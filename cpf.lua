@@ -94,4 +94,5 @@ return {
     SanitizarCPF = SanitizarCPF,
     FormatarCPF = FormatarCPF,
     ValidarCPF = ValidarCPF,
+    ValidarDigito, ValidarDigito
 }
