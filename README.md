@@ -16,7 +16,11 @@
 
 - Formata o CPF para o modelo padrão: ###.###.###-## 
 
-### 🎇 Validação 🎇
+### 🎇 Validação Digito 🎇
+
+- Calcula os ultimos digitos de um CPF de acordo com 9/10 digitos dele.
+
+### 🎇 Validação CPF 🎇
 
 - Utiliza a função de **Sanitizar** o CPF.
 - Faz o algoritmo de Validação.
