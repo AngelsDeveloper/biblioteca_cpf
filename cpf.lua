@@ -1,3 +1,5 @@
+math.randomseed(os.time())
+
 local cpfsBloqueados = {
     [11111111111] = true,
     [22222222222] = true,
@@ -10,10 +12,8 @@ local cpfsBloqueados = {
     [99999999999] = true
 }
 
-function SanitizarCPF(cpf)
-    local chars
-    cpf = tostring(cpf)
-    local stringCompleta = ''
+local function SanitizarCPF(cpf)
+    local chars, cpf, stringCompleta  = nil, tostring(cpf), ''
 
     for i = 1, #cpf do
         chars = string.sub(cpf, i, i)
@@ -30,10 +30,8 @@ function SanitizarCPF(cpf)
     end
 end
 
-function ValidarDigito(cpf, fim, multiplicador)
-    local resto = 0
-    local soma = 0
-    local mult = multiplicador
+local function ValidarDigito(cpf, fim, multiplicador)
+    local resto, soma, mult = 0, 0, multiplicador
     local cpf_valor = string.sub(cpf, 1, fim)
 
     for i = 1, #cpf_valor do
@@ -51,10 +49,8 @@ function ValidarDigito(cpf, fim, multiplicador)
     end
 end
 
-function FormatarCPF(cpf)
-    local chars
-    local formato = '###.###.###-##'
-    local cpfFormatado = ''
+local function FormatarCPF(cpf)
+    local chars, formato, cpfFormatado = nil, '###.###.###-##', ''
 
     local pontos = 0
 
@@ -73,7 +69,7 @@ function FormatarCPF(cpf)
     return cpfFormatado
 end
 
-function ValidarCPF(cpf)
+local function ValidarCPF(cpf)
     cpf = SanitizarCPF(cpf)
 
     if not cpf or cpfsBloqueados[tonumber(cpf)] then
@@ -98,8 +94,9 @@ function ValidarCPF(cpf)
     end
 end
 
-function GerarCPF(formatado)
+local function GerarCPF(formatado)
     local cpf = ''
+
     for i = 1, 9 do
        cpf = cpf .. math.random(0,9) 
     end
